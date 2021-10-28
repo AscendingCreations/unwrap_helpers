@@ -8,7 +8,7 @@ edition = "2021"
 repository = "https://github.com/AscendingCreations/unwrap_helpers"
 readme = "README.md"
 documentation = "https://docs.rs/unwrap_helpers"
-keywords = ["unwrap", "return", "helper", "macros", "option", "result"]
+keywords = ["unwrap", "return", "macros", "option", "result"]
 
 [dependencies]
-loop_unwrap = "0.2.0"
+loop_unwrap = "0.2"
