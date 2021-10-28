@@ -29,7 +29,7 @@ macro_rules! unwrap_or_return {
 /// Will return No data or Data.
 #[macro_export]
 macro_rules! unwrap_or_fn_return {
-    ($x:expr, $closure:tt) => {
+    ($x:expr, $closure:expr) => {
         match $x.to_option() {
             Some(v) => v,
             None => {
