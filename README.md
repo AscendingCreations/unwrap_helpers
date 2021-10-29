@@ -27,6 +27,7 @@ fn ret_as_option_fail() -> Option<i32> {
     None
 }
 ```
+```
 fn test_send(x: i32) -> i32 {
     x + 1
 }
