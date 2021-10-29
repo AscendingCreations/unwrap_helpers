@@ -10,7 +10,7 @@ pub use loop_unwrap::*;
 #[macro_export]
 macro_rules! unwrap_or_return {
     ($x:expr, $fn:expr, ($($arg:expr),*)) => {
-        match $x {
+        match $x.to_option() {
             Some(v) => v,
             None => {
                 return $fn($($arg),*);
@@ -18,7 +18,7 @@ macro_rules! unwrap_or_return {
         }
     };
     ($x:expr, move || $expression:expr) => {
-        match $x {
+        match $x.to_option() {
             Some(v) => v,
             None => {
                 return (move || $expression)();
@@ -26,7 +26,7 @@ macro_rules! unwrap_or_return {
         }
     };
     ($x:expr, || $expression:expr) => {
-        match $x {
+        match $x.to_option() {
             Some(v) => v,
             None => {
                 return (|| $expression)();
@@ -34,7 +34,7 @@ macro_rules! unwrap_or_return {
         }
     };
     ($x:expr, $ret:expr) => {
-        match $x {
+        match $x.to_option() {
             Some(v) => v,
             None => {
                 return $ret;
