@@ -1,6 +1,6 @@
 [package]
 name = "unwrap_helpers"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Andrew Wheeler <genusistimelord@gmail.com>"]
 description = "Helper macros for unwrapping."
 license = "MIT"

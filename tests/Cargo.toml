@@ -1,0 +1,13 @@
+[package]
+name = "unwrap-helpers-tests"
+version = "0.0.0"
+authors = ["Andrew Wheeler <genusistimelord@gmail.com>"]
+edition = "2021"
+
+
+[dependencies]
+unwrap_helpers = {path = "../"}
+
+[[test]]
+name = "test"
+path = "test.rs"
