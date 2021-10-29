@@ -2,7 +2,7 @@
 Unwrap Macros to help Clean up code and improve production.
 This does include a pub use of https://github.com/Mrp1Dev/loop_unwrap to gain access to unwrap loop macros.
 
-[![https://crates.io/crates/unwrap_helpers](https://img.shields.io/badge/crates.io-v0.1.0-blue)](https://crates.io/crates/unwrap_helpers)
+[![https://crates.io/crates/unwrap_helpers](https://img.shields.io/badge/crates.io-v0.2.2-blue)](https://crates.io/crates/unwrap_helpers)
 [![Docs](https://docs.rs/unwrap_helpers/badge.svg)](https://docs.rs/unwrap_helpers)
 
 /// Works like `.unwrap`, if it's an Err(_) or None it calls return.
