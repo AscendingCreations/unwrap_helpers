@@ -78,7 +78,7 @@ struct Unwrapper {
 impl Parse for Unwrapper {
     fn parse(input: ParseStream) -> syn::Result<Self> {
         let source_expression: Box<Expr> = input.parse()?;
-        let delimiter: Token![,] = input.parse()?;
+        let _: Token![,] = input.parse()?;
         let return_expression: Box<Expr> = input.parse()?;
         let delimiter: syn::Result<Token![,]> = input.parse();
         let optional_closure_arguments = {
