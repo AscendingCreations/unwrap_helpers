@@ -12,3 +12,4 @@ keywords = ["unwrap", "return", "macros", "option", "result"]
 
 [dependencies]
 loop_unwrap = "0.2"
+proc_macros = {path = "./proc_macros" }
