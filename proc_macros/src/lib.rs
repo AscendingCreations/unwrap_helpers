@@ -1,16 +1,11 @@
 use proc_macro::TokenStream;
-use syn::{
-    Expr,
-    Token,
-    parse_macro_input,
-
-    punctuated::Punctuated,
-    parse::{
-        Parse,
-        ParseStream
-    },
-};
 use quote::quote;
+use syn::{
+    parse::{Parse, ParseStream},
+    parse_macro_input,
+    punctuated::Punctuated,
+    Expr, Token,
+};
 
 /// Attempts to unwrap the given value expression
 ///
@@ -53,10 +48,10 @@ pub fn unwrap_or_return(tokens: TokenStream) -> TokenStream {
             quote! {
                 (#closure)(#closure_arguments)
             }
-        },
+        }
         expr => quote! {
             #expr
-        }
+        },
     };
 
     proc_macro::TokenStream::from(quote! {
@@ -72,7 +67,7 @@ pub fn unwrap_or_return(tokens: TokenStream) -> TokenStream {
 struct Unwrapper {
     source_expression: Box<Expr>,
     return_expression: Box<Expr>,
-    optional_closure_arguments: Option<Punctuated<Expr, Token![,]>>
+    optional_closure_arguments: Option<Punctuated<Expr, Token![,]>>,
 }
 
 impl Parse for Unwrapper {
@@ -82,10 +77,12 @@ impl Parse for Unwrapper {
         let return_expression: Box<Expr> = input.parse()?;
         let delimiter: syn::Result<Token![,]> = input.parse();
         let optional_closure_arguments = {
-            if let Ok(_) = delimiter {
+            if delimiter.is_ok() {
                 match *return_expression {
-                    Expr::Closure(_) => Some(Punctuated::<Expr, Token![,]>::parse_terminated(input)?),
-                    _ => None
+                    Expr::Closure(_) => {
+                        Some(Punctuated::<Expr, Token![,]>::parse_terminated(input)?)
+                    }
+                    _ => None,
                 }
             } else {
                 None
@@ -95,7 +92,7 @@ impl Parse for Unwrapper {
         Ok(Unwrapper {
             source_expression,
             return_expression,
-            optional_closure_arguments
+            optional_closure_arguments,
         })
     }
 }
