@@ -2,12 +2,12 @@
 Unwrap Macros to help Clean up code and improve production.
 This does include a pub use of https://github.com/Mrp1Dev/loop_unwrap to gain access to unwrap loop macros.
 
-[![https://crates.io/crates/unwrap_helpers](https://img.shields.io/badge/crates.io-v0.2.2-blue)](https://crates.io/crates/unwrap_helpers)
+[![https://crates.io/crates/unwrap_helpers](https://img.shields.io/badge/crates.io-v0.3.0-blue)](https://crates.io/crates/unwrap_helpers)
 [![Docs](https://docs.rs/unwrap_helpers/badge.svg)](https://docs.rs/unwrap_helpers)
 
 /// Works like `.unwrap`, if it's an Err(_) or None it calls return.
-/// Will return No data or Data. Can use a Simple Closure
-/// but if you want a closure with return type set you must make it like || -> i32 {1}()
+/// Will return no data or data. Can use Closures or functions that returns the parent functions return type.
+
 # Examples
 ```
 fn ret_test_fail() -> i32 {
@@ -56,7 +56,17 @@ fn ret_closure_ret_fail() -> i32 {
     let x = 5;
     let opt = None;
 
-    let _ = unwrap_or_return!(opt, || -> i32 { x + 1 }());
+    let _ = unwrap_or_return!(opt, || -> i32 { x + 1 });
+
+    1
+}
+```
+```
+fn ret_closure_ret_fail_insert() -> i32 {
+    let x = 5;
+    let opt = None;
+
+    let _ = unwrap_or_return!(opt, |x1| x1 + 1, x);
 
     1
 }
