@@ -7,7 +7,7 @@ description = "Process macro for unwrap_helpers."
 license = "MIT"
 repository = "https://github.com/AscendingCreations/unwrap_helpers"
 readme = "README.md"
-documentation = "https://docs.rs/unwrap_helpers"
+documentation = "https://docs.rs/unwrap_helpers_proc_macros"
 keywords = ["unwrap", "return", "macros", "option", "result"]
 
 [lib]
