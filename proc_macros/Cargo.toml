@@ -1,7 +1,14 @@
 [package]
-name = "proc_macros"
+name = "unwrap_helpers_proc_macros"
 version = "0.1.0"
 edition = "2021"
+authors = ["Andrew Wheeler <genusistimelord@gmail.com>"]
+description = "Process macro for unwrap_helpers."
+license = "MIT"
+repository = "https://github.com/AscendingCreations/unwrap_helpers"
+readme = "README.md"
+documentation = "https://docs.rs/unwrap_helpers"
+keywords = ["unwrap", "return", "macros", "option", "result"]
 
 [lib]
 proc-macro = true
