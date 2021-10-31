@@ -12,4 +12,4 @@ keywords = ["unwrap", "return", "macros", "option", "result"]
 
 [dependencies]
 loop_unwrap = "0.2"
-unwrap_helpers_proc_macros = {path = "./proc_macros" }
+unwrap_helpers_proc_macros = "0.1"
