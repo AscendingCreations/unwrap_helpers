@@ -1,7 +1,7 @@
 pub use unwrap_helpers::*;
 
 #[test]
-fn runner() {
+pub fn runner() {
     assert_eq! {1, ret_test_pass() };
     assert_eq! {0, ret_test_fail() };
     assert_eq! {1, ret_fn_pass() };
@@ -12,6 +12,7 @@ fn runner() {
     assert_eq! {6, ret_closure_ret_fail() };
     assert_eq! {None, ret_as_option_pass() };
     assert_eq! {Some(0), ret_as_option_fail() };
+    ret_nothing();
 }
 
 fn ret_test_pass() -> i32 {
@@ -102,4 +103,10 @@ fn ret_closure_ret_fail() -> i32 {
     let _ = unwrap_or_return!(opt, || -> i32 { x + 1 }());
 
     1
+}
+
+fn ret_nothing() {
+    let opt = None;
+
+    let _ = unwrap_or_return!(opt);
 }

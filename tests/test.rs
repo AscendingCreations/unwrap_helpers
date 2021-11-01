@@ -1,3 +1,6 @@
 mod tests;
 
-fn main() {}
+use tests::runner;
+fn main() {
+    runner();
+}
