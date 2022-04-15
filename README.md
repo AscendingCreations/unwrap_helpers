@@ -77,3 +77,7 @@ fn test_no_return() {
     let parsed_input = unwrap_or_return!(input);
 }
 ```
+
+# Help
+
+If you need help with this library please go to our [Discord Group](https://discord.gg/xKkm7UhM36)
